@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love for You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Emilys Candy', cursive;
+            background: linear-gradient(135deg, #ff6b6b, #ff9ff3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .slctp {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .images-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -5;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .images-container.show {
+            opacity: 1;
+        }
+
+        .img1, .img2, .img3, .img4, .img5, .img6 {
+            position: absolute;
+            width: 20%;
+            max-width: 100px;
+        }
+
+        .img1 {
+            right: 10px;
+            top: 20px;
+        }
+
+        .img2 {
+            left: 10px;
+            top: 10px;
+            transform: scale(0.80);
+        }
+
+        .img3 {
+            left: 10px;
+            bottom: 80px;
+        }
+
+        .img4 {
+            right: 10px;
+            bottom: 10px;
+            transform: scaleX(-1);
+        }
+
+        .img5 {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .img6 {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            max-width: 90%;
+            width: 100%;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: absolute;
+            margin: 10px;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: scale(0.7);
+            pointer-events: none;
+        }
+
+        .heart {
+            font-size: 2em;
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .mail {
+            width: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .mail:hover {
+            transform: scale(1.1);
+        }
+
+        .flower {
+            width: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: 0%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .show-flower {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-20px);
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .selection {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .selection button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .selection button:hover {
+            transform: scale(1.1);
+        }
+
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+
+        @media (min-width: 600px) {
+            .slctp {
+                font-size: 2.5em;
+            }
+
+            .card {
+                padding: 40px;
+                max-width: 500px;
+            }
+
+            .heart {
+                font-size: 4em;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .mail {
+                width: 100px;
+            }
+
+            .img1, .img2, .img3, .img4, .img5, .img6 {
+                width: 30%;
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="p-selection">
+            <p class="slctp">WILL YOU BE MY VALENTINE'S LANGGA?</p>
+        </div>
+        <div class="selection">
+            <button class="yes" id="yes">Yes</button>
+            <button class="no" id="no">No</button>  
+        </div>
+    </div>
+    
+    <div class="images-container" id="imagesContainer">
+        <img src="valentines gif/Valentines Day Cat Sticker.gif" alt="luhhh" class="img1">
+        <img src="valentines gif/cupid.gif" alt="hehe" class="img2">
+        <img src="valentines gif/Happy In Love Sticker by KIKI.gif" alt="happy" class="img3">
+        <img src="valentines gif/cupid2.gif" alt="mwaah" class="img4">
+        <img src="valentines gif/Cat Love Sticker by ACHTUNG.gif" alt="mwaahh" class="img5">
+        <img src="kinikilig.gif" alt="yiiee" class="img6">
+        <img src="valentines gif/kinikilig.gif" alt="yiee" class="img6">
+    </div>
+
+    <div class="card hidden" id="firstCard">
+        <div class="heart">❤️</div>
+        <h1>Hello Langga!!</h1>
+        <p>Happy Valentine's Day!! huhu pasensya na kung ito lang nakaya ko ngayon huhuhuhuhuhu, I LOVEEEE YOUUU SOOO MUCHHHHHH</p>
+        <p>Click to see more...</p>
+    </div>
+
+    <div class="card hidden" id="secondCard">
+        <div class="heart">💕</div>
+        <h1>THANK YOUUUU</h1>
+        <p>I am super thank youu sayo!!! kase kahit na hindi ako ganun kahandsome hehe, but still pinili mo pa rin ako langga. Kahit na nagkakamali ako lagi sayo, palagi ko pinapainit ulo mo or nagkakaroon tayo ng misunderstanding, you still didn't give up on me. Maraming Salamat kase pinaramdam mo sa'kin na pwede rin pala ako mahalin!</p>
+        <p>Mahal na mahal kita higit pa sa salita langga ko</p>
+    </div>
+
+    <div class="card hidden" id="thirdCard">
+        <div class="heart">💕</div>
+        <h1>SORRY!!!</h1>
+        <p>Pasensya na sa mga kagaguhan ko po sa buhay langga, pasensya na rin at ako po ay laging nag ooverthink yet you still give me assurance!! Pasensya na rin po kung paminsan ehh nagseselos ako langga!! huhu hindi ko mapigilan!!</p>
+        <p>Mahal na mahal kita higit pa sa salita langga ko</p>
+    </div>
+
+    <div class="card hidden" id="fourthCard">
+        <div class="heart">💕</div>
+        <h1>MAHAL NA MAHAL KITA</h1>
+        <p>IKAW ANG PINAKAMAMAHAL KONG TAO SA LAHAT!! ANG KAGANDAHAN MO PO AY TILA NAKAKAPAGBIGAY NG NGITI SA BAWAT PAGSULYAP KO SA LITRATO AT MGA VIDEOS! MARAMING SALAMAT SA PAGTITIWALA MAHAL KO!!! MARAMING SALAMAT SA IYONG PAGMAMAHAL!!! ARAW ARAW KITANG PIPILIIN AT MAMAHALIN, GIHIGUGMA TIKA CHRISTINE GRACE INUMERABLES!! MWAAH</p>
+        <p>Mahal na mahal kita higit pa sa salita langga ko</p>
+    </div>
+
+    <div class="card hidden" id="fifthCard">
+        <div class="heart">💖</div>
+        <h1>A Special Surprise</h1>
+        <p>Love, like a flower, blooms beautifully over time.</p>
+        <a href="flower.html">
+            <button>Click Here</button>
+        </a>
+    </div>
+        
+            
+        
+
+    <script>
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const firstCard = document.getElementById('firstCard');
+        const secondCard = document.getElementById('secondCard');
+        const thirdCard = document.getElementById('thirdCard');
+        const fourthCard = document.getElementById('fourthCard');
+        const fifthCard = document.getElementById('fifthCard');
+        const catkiss = document.getElementById('flower');
+        const imagesContainer = document.getElementById('imagesContainer');
+
+        yesButton.addEventListener('click', function() {
+            document.querySelector('.selection').style.display = 'none';
+            document.querySelector('.slctp').style.display = 'none';
+            firstCard.classList.remove('hidden');
+            imagesContainer.classList.add('show');
+        });
+
+        noButton.addEventListener('click', function() {
+            window.location.href = 'https://www.example.com';
+        });
+
+        firstCard.addEventListener('click', function() {
+            firstCard.classList.add('hidden');
+            secondCard.classList.remove('hidden');
+        });
+
+        secondCard.addEventListener('click', function() {
+            secondCard.classList.add('hidden');
+            thirdCard.classList.remove('hidden');
+        });
+
+        thirdCard.addEventListener('click', function() {
+            thirdCard.classList.add('hidden');
+            fourthCard.classList.remove('hidden');
+        });
+
+        fourthCard.addEventListener('click', function() {
+            fourthCard.classList.add('hidden');
+            fifthCard.classList.remove('hidden'); 
+        });
+
+    </script>
+</body>
+</html>
