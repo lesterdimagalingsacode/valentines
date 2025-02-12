@@ -128,21 +128,6 @@
             transform: scale(1.1);
         }
 
-        .flower {
-            width: 50%;
-            position: absolute;
-            left: 50%;
-            bottom: 0%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .show-flower {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-20px);
-        }
-
         p {
             font-size: 14px;
             line-height: 1.5;
@@ -180,6 +165,11 @@
 
         .no {
             background-color: #f44336;
+            color: white;
+        }
+
+        .flower {
+            background-color: #4CAF50;
             color: white;
         }
 
@@ -228,13 +218,12 @@
     </div>
     
     <div class="images-container" id="imagesContainer">
-        <img src="valentines gif/Valentines Day Cat Sticker.gif" alt="luhhh" class="img1">
-        <img src="valentines gif/cupid.gif" alt="hehe" class="img2">
-        <img src="valentines gif/Happy In Love Sticker by KIKI.gif" alt="happy" class="img3">
-        <img src="valentines gif/cupid2.gif" alt="mwaah" class="img4">
-        <img src="valentines gif/Cat Love Sticker by ACHTUNG.gif" alt="mwaahh" class="img5">
+        <img src="Valentines Day Cat Sticker.gif" alt="luhhh" class="img1">
+        <img src="cupid.gif" alt="hehe" class="img2">
+        <img src="Happy In Love Sticker by KIKI.gif" alt="happy" class="img3">
+        <img src="cupid2.gif" alt="mwaah" class="img4">
+        <img src="Cat Love Sticker by ACHTUNG.gif" alt="mwaahh" class="img5">
         <img src="kinikilig.gif" alt="yiiee" class="img6">
-        <img src="valentines gif/kinikilig.gif" alt="yiee" class="img6">
     </div>
 
     <div class="card hidden" id="firstCard">
@@ -270,7 +259,7 @@
         <h1>A Special Surprise</h1>
         <p>Love, like a flower, blooms beautifully over time.</p>
         <a href="flower.html">
-            <button>Click Here</button>
+            <button class="flower">Click Here</button>
         </a>
     </div>
         
