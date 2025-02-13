@@ -348,7 +348,12 @@
 </body>
 <script>
   const backgroundMusic = document.getElementById('backgroundMusic');
-  
+  let hasInteracted = false;
+
+  // Play music on first interaction with any element
+  document.addEventListener('touchstart', initializeAudio, { once: true });
+  document.addEventListener('click', initializeAudio, { once: true });
+
   // Check if music was playing in the previous page
   window.addEventListener('load', function() {
       const wasMusicPlaying = sessionStorage.getItem('musicPlaying');
@@ -357,6 +362,13 @@
           backgroundMusic.play();
       }
   });
+
+  function initializeAudio() {
+      if (!hasInteracted) {
+          hasInteracted = true;
+          backgroundMusic.play();
+      }
+  }
 
   // Save music state before leaving page
   window.addEventListener('beforeunload', function() {
