@@ -8,6 +8,9 @@
   <link rel="shortcut icon" href="sunflower.ico" type="image/x-icon">
 </head>
 <body>
+  <button id="playButton" style="position: fixed; top: 10px; left: 10px; z-index: 1000; padding: 10px; background: rgba(255,255,255,0.2); border: none; border-radius: 50%; cursor: pointer;">
+    🎵
+  </button>
   <audio id="backgroundMusic" loop>
       <source src="NIKI - Every Summertime (Official Video).mp3" type="audio/mp3">
       Your browser does not support the audio element.
@@ -348,32 +351,33 @@
 </body>
 <script>
   const backgroundMusic = document.getElementById('backgroundMusic');
-  let hasInteracted = false;
+  const playButton = document.getElementById('playButton');
+        
+        // Play button click handler
+  playButton.addEventListener('click', function() {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        // Check if there was a saved time
+        const savedTime = sessionStorage.getItem('musicTime');
+        if (savedTime) {
+            backgroundMusic.currentTime = parseFloat(savedTime);
+        }
+    } else {
+      backgroundMusic.pause();
+    }
+  });
 
-  // Play music on first interaction with any element
-  document.addEventListener('touchstart', initializeAudio, { once: true });
-  document.addEventListener('click', initializeAudio, { once: true });
-
-  // Check if music was playing in the previous page
+  
   window.addEventListener('load', function() {
       const wasMusicPlaying = sessionStorage.getItem('musicPlaying');
       if (wasMusicPlaying === 'true') {
-          backgroundMusic.currentTime = parseFloat(sessionStorage.getItem('musicTime') || 0);
-          backgroundMusic.play();
+        playButton.style.display = 'block';
       }
   });
 
-  function initializeAudio() {
-      if (!hasInteracted) {
-          hasInteracted = true;
-          backgroundMusic.play();
-      }
-  }
-
-  // Save music state before leaving page
   window.addEventListener('beforeunload', function() {
-      sessionStorage.setItem('musicPlaying', !backgroundMusic.paused);
-      sessionStorage.setItem('musicTime', backgroundMusic.currentTime);
+    sessionStorage.setItem('musicPlaying', !backgroundMusic.paused);
+    sessionStorage.setItem('musicTime', backgroundMusic.currentTime);
   });
 </script>
 </html>
