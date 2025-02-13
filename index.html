@@ -43,7 +43,7 @@
             opacity: 1;
         }
 
-        .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8 {
+        .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8, .img9, .img10 {
             position: absolute;
             width: 20%;
             max-width: 100px;
@@ -85,7 +85,7 @@
 
         .img7 {
             left: 20%;
-            top: 60%;
+            top: 65%;
             transform: translateX(-50%);
         }
 
@@ -93,6 +93,18 @@
             left: 75%;
             top: 70%;
             transform: translateY(-50%);
+        }
+
+        .img9 {
+            left: 30%;
+            top: 25%;
+            transform: translate(-50%, -50%);
+        }
+
+        .img10 {
+            right: 40%;
+            top: 28%;
+            transform: translate(50%, -50%);
         }
 
         .card {
@@ -223,7 +235,7 @@
                 width: 100px;
             }
 
-            .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8 {
+            .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8, .img9, .img10 {
                 width: 30%;
                 max-width: 150px;
             }
@@ -250,6 +262,8 @@
         <img src="kinikilig.gif" alt="yiiee" class="img6">
         <img src="kinikiss malala.gif" alt="kiss" class="img7">
         <img src="cutiee hamster.gif" alt="cute" class="img8">
+        <img src="Hamster.gif" alt="hammy" class="img9">
+        <img src="Black Cat Love Sticker.gif" alt="cutie" class="img10">
 
     </div>
 
@@ -338,6 +352,7 @@
             window.location.href = 'https://www.example.com';
         });
 
+        
         firstCard.addEventListener('click', function() {
             firstCard.classList.add('hidden');
             secondCard.classList.remove('hidden');
