@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="heart.ico" type="image/x-icon">
     <style>
         body {
             font-family: 'Emilys Candy', cursive;
@@ -42,7 +43,7 @@
             opacity: 1;
         }
 
-        .img1, .img2, .img3, .img4, .img5, .img6 {
+        .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8 {
             position: absolute;
             width: 20%;
             max-width: 100px;
@@ -66,7 +67,7 @@
 
         .img4 {
             right: 10px;
-            bottom: 10px;
+            bottom: 10%;
             transform: scaleX(-1);
         }
 
@@ -77,8 +78,20 @@
         }
 
         .img6 {
-            right: 10px;
-            top: 50%;
+            right: 50%;
+            bottom: 5%;
+            transform: translateY(-50%);
+        }
+
+        .img7 {
+            left: 20%;
+            top: 60%;
+            transform: translateX(-50%);
+        }
+
+        .img8 {
+            left: 75%;
+            top: 70%;
             transform: translateY(-50%);
         }
 
@@ -210,7 +223,7 @@
                 width: 100px;
             }
 
-            .img1, .img2, .img3, .img4, .img5, .img6 {
+            .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8 {
                 width: 30%;
                 max-width: 150px;
             }
@@ -235,6 +248,9 @@
         <img src="cupid2.gif" alt="mwaah" class="img4">
         <img src="Cat Love Sticker by ACHTUNG.gif" alt="mwaahh" class="img5">
         <img src="kinikilig.gif" alt="yiiee" class="img6">
+        <img src="kinikiss malala.gif" alt="kiss" class="img7">
+        <img src="cutiee hamster.gif" alt="cute" class="img8">
+
     </div>
 
     <div class="card hidden" id="firstCard">
@@ -255,7 +271,7 @@
         <div class="heart">💕</div>
         <h1>SORRY!!!</h1>
         <p>Pasensya na sa mga kagaguhan ko po sa buhay langga, pasensya na rin at ako po ay laging nag ooverthink yet you still give me assurance!! Pasensya na rin po kung paminsan ehh nagseselos ako langga!! huhu hindi ko mapigilan!!</p>
-        <p>Mahal na mahal kita higit pa sa salita langga ko</p>
+        <p>THANK YOU KASE TANGGAP MO PO AKO KAHIT PURO KAGAGUHAN</p>
     </div>
 
     <div class="card hidden" id="fourthCard">
@@ -266,9 +282,30 @@
     </div>
 
     <div class="card hidden" id="fifthCard">
+        <div class="heart">💕</div>
+        <h1>MAHAL NA MAHAL KITA</h1>
+        <p>Maraming salamat sayo!!! yung boring at ordinaryo kong araw nagiging special pag kausap na kita. Ikaw ang taong nagbigay ng peace of mind sa mundong punong puno ng uncertainties. Sana ikaw na hanggang huli langga.... MAHAL NA MAHAL KITA</p>
+        <p>Walang boring na eksena pag ikaw ang kasama langga</p>
+    </div>
+
+    <div class="card hidden" id="sixthCard">
+        <div class="heart">💕</div>
+        <h1>HUHUHUHU</h1>
+        <p>Sorry, pag paminsan i cannot control myself lalo na yung hehe. I don't know but sometimes i find myself imagining of us, having a moment where we didn't feel like we're not sooo layo sa isa't isa. </p>
+        <p>HEHEHEHEHEHEHEHEHEHEHEHEHEHE</p>
+    </div>
+
+    <div class="card hidden" id="seventhCard">
+        <div class="heart">💕</div>
+        <h1>WAZZUP LANGGA</h1>
+        <p>I'M SO PROUD OF YOUUU LANGGA KOOOO!! If you think na walang proud sa mga ginagawa mo, just remember MEEEE!! proud na proud ako sa'yo!! sa lahat ng achievements mo sa life, whether it is big or small, i am sooo proud. You have me, through ups and downs. I love youuuu</p>
+        <p>HEHEHEHEHEHEHEHEHEHEHEHEHEHE</p>
+    </div>
+
+    <div class="card hidden" id="eighthCard">
         <div class="heart">💖</div>
-        <h1>A Special Surprise</h1>
-        <p>Love, like a flower, blooms beautifully over time.</p>
+        <h1>This is FOR YOUUU!!!!!</h1>
+        <p>I hope you like this, hehehe i love you so much langga koooo!!</p>
         <a href="flower.html">
             <button class="flower">Click Here</button>
         </a>
@@ -285,7 +322,9 @@
         const thirdCard = document.getElementById('thirdCard');
         const fourthCard = document.getElementById('fourthCard');
         const fifthCard = document.getElementById('fifthCard');
-        const catkiss = document.getElementById('flower');
+        const sixthCard = document.getElementById('sixthCard');
+        const seventhCard = document.getElementById('seventhCard');
+        const eighthCard = document.getElementById('eighthCard');
         const imagesContainer = document.getElementById('imagesContainer');
 
         yesButton.addEventListener('click', function() {
@@ -318,6 +357,27 @@
             fourthCard.classList.add('hidden');
             fifthCard.classList.remove('hidden'); 
         });
+
+        fifthCard.addEventListener('click', function() {
+            fifthCard.classList.add('hidden');
+            sixthCard.classList.remove('hidden');
+        });
+
+        sixthCard.addEventListener('click', function() {
+            sixthCard.classList.add('hidden');
+            seventhCard.classList.remove('hidden');
+        });
+
+        seventhCard.addEventListener('click', function() {
+            seventhCard.classList.add('hidden');
+            eighthCard.classList.remove('hidden');
+        });
+
+        eighthCard.addEventListener('click', function() {
+            eighthCard.classList.add('hidden');
+            firstCard.classList.remove('hidden');
+        });
+        
 
     </script>
 </body>
