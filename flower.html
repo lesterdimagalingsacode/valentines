@@ -352,29 +352,44 @@
 <script>
   const backgroundMusic = document.getElementById('backgroundMusic');
   const playButton = document.getElementById('playButton');
-        
-        // Play button click handler
-  playButton.addEventListener('click', function() {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play();
-        // Check if there was a saved time
-        const savedTime = sessionStorage.getItem('musicTime');
-        if (savedTime) {
-            backgroundMusic.currentTime = parseFloat(savedTime);
-        }
-    } else {
-      backgroundMusic.pause();
-    }
-  });
-
   
-  window.addEventListener('load', function() {
-      const wasMusicPlaying = sessionStorage.getItem('musicPlaying');
-      if (wasMusicPlaying === 'true') {
-        playButton.style.display = 'block';
-      }
-  });
+  // Function to check if device is mobile
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
 
+  // Function to handle music playback
+  function handleMusic() {
+    const savedTime = sessionStorage.getItem('musicTime');
+    if (savedTime) {
+      backgroundMusic.currentTime = parseFloat(savedTime);
+    }
+    backgroundMusic.play().catch(error => console.log('Playback failed:', error));
+  }
+
+  // Different behavior for mobile and desktop
+  if (isMobileDevice()) {
+    // Mobile: Show button and handle click
+    playButton.style.display = 'block';
+    playButton.addEventListener('click', function() {
+      if (backgroundMusic.paused) {
+        handleMusic();
+      } else {
+        backgroundMusic.pause();
+      }
+    });
+  } else {
+    // Desktop: Auto-play and hide button
+    playButton.style.display = 'none';
+    window.addEventListener('load', function() {
+      const wasMusicPlaying = sessionStorage.getItem('musicPlaying');
+      if (wasMusicPlaying === 'true' || wasMusicPlaying === null) {
+        handleMusic();
+      }
+    });
+  }
+
+  // Save music state before leaving page
   window.addEventListener('beforeunload', function() {
     sessionStorage.setItem('musicPlaying', !backgroundMusic.paused);
     sessionStorage.setItem('musicTime', backgroundMusic.currentTime);
