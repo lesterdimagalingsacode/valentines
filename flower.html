@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>FLOWERS FOR MY LANGGA</title>
   <link rel="stylesheet" href="flower.css">
   <link rel="shortcut icon" href="sunflower.ico" type="image/x-icon">
 </head>
 <body>
+  <audio id="backgroundMusic" loop>
+      <source src="NIKI - Every Summertime (Official Video).mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+  </audio>
   <div class="night"></div>
   <div class="flower">
     <div class="flower flower--1">
@@ -342,4 +346,22 @@
     </div>
   </div>
 </body>
+<script>
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  
+  // Check if music was playing in the previous page
+  window.addEventListener('load', function() {
+      const wasMusicPlaying = sessionStorage.getItem('musicPlaying');
+      if (wasMusicPlaying === 'true') {
+          backgroundMusic.currentTime = parseFloat(sessionStorage.getItem('musicTime') || 0);
+          backgroundMusic.play();
+      }
+  });
+
+  // Save music state before leaving page
+  window.addEventListener('beforeunload', function() {
+      sessionStorage.setItem('musicPlaying', !backgroundMusic.paused);
+      sessionStorage.setItem('musicTime', backgroundMusic.currentTime);
+  });
+</script>
 </html>
