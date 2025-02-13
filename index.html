@@ -243,6 +243,10 @@
     </style>
 </head>
 <body>
+    <audio id="backgroundMusic" loop>
+        <source src="NIKI - Every Summertime (Official Video).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
     <div>
         <div class="p-selection">
             <p class="slctp">WILL YOU BE MY VALENTINE'S LANGGA?</p>
@@ -329,6 +333,23 @@
         
 
     <script>
+
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        function playBackgroundMusic() {
+            backgroundMusic.play();
+        }
+        
+        document.addEventListener('click', function() {
+            playBackgroundMusic();
+        }, { once: true });
+
+        document.querySelector('.flower').addEventListener('click', function() {
+        sessionStorage.setItem('musicPlaying', !backgroundMusic.paused);
+        sessionStorage.setItem('musicTime', backgroundMusic.currentTime);
+        });
+
+
         const yesButton = document.getElementById('yes');
         const noButton = document.getElementById('no');
         const firstCard = document.getElementById('firstCard');
